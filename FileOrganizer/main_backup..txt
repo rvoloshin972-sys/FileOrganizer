@@ -1,0 +1,56 @@
+
+from pathlib import Path
+
+folder = Path("TestFiles")
+if folder.exists() and folder.is_dir():
+	for file in folder.iterdir():
+		if file.is_file():
+			suffix = file.suffix.lower()
+			if suffix == ".jpg" or suffix == ".jpeg" or suffix == ".png" or suffix == ".gif" or suffix == ".bmp" or suffix == ".webp" or suffix == ".svg":
+				destination = folder / "Images"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".pdf" or suffix == ".doc" or suffix == ".docx" or suffix == ".txt" or suffix == ".rtf" or suffix == ".odt":
+				destination = folder / "Documents"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".mp3" or suffix == ".wav" or suffix == ".flac" or suffix == ".aac" or suffix == ".ogg" or suffix == ".m4a":
+				destination = folder / "Music"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".mp4" or suffix == ".avi" or suffix == ".mkv" or suffix == ".mov" or suffix == ".wmv" or suffix == ".webm":
+				destination = folder / "Videos"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".zip" or suffix == ".rar" or suffix == ".7z" or suffix == ".tar" or suffix == ".gz":
+				destination = folder / "Archives"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".xls" or suffix == ".xlsx" or suffix == ".csv" or suffix == ".ods":
+				destination = folder / "Tables"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".py" or suffix == ".cpp" or suffix == ".h" or suffix == ".cs" or suffix == ".js" or suffix == ".html" or suffix == ".css" or suffix == ".sql":
+				destination = folder / "Programming"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix == ".exe" or suffix == ".msi" or suffix == ".bat" or suffix == ".cmd":
+				destination = folder / "Programs"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+			if suffix != ".jpg" and suffix != ".jpeg" and suffix != ".png" and suffix != ".gif" and suffix != ".bmp" and suffix != ".webp" and suffix != ".svg" and suffix != ".pdf" and suffix != ".doc" and suffix != ".docx" and suffix != ".txt" and suffix != ".rtf" and suffix != ".odt" and suffix != ".mp3" and suffix != ".wav" and suffix != ".flac" and suffix != ".aac" and suffix != ".ogg" and suffix != ".m4a" and suffix != ".mp4" and suffix != ".avi" and suffix != ".mkv" and suffix != ".mov" and suffix != ".wmv" and suffix != ".webm" and suffix != ".zip" and suffix != ".rar" and suffix != ".7z" and suffix != ".tar" and suffix != ".gz" and suffix != ".xls" and suffix != ".xlsx" and suffix != ".csv" and suffix != ".ods" and suffix != ".py" and suffix != ".cpp" and suffix != ".h" and suffix != ".cs" and suffix != ".js" and suffix != ".html" and suffix != ".css" and suffix != ".sql" and suffix != ".exe" and suffix != ".msi" and suffix != ".bat" and suffix != ".cmd":
+				destination = folder / "Other"
+				destination.mkdir(exist_ok=True)
+				file.rename(destination / file.name)
+
+		print("Сортування файлів завершено!")
+else:
+		print("Папку TestFiles не знайдено!")
